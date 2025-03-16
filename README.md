@@ -1,5 +1,9 @@
 # Web-Automation-with-Playwright
 
+## Video Output
+
+https://github.com/user-attachments/assets/8673500a-14a1-4729-85e4-8b4bab5feee3
+
 ## What is Automation?
 
 Automation is the practice of using software tools and scripts to perform tasks that would typically require human intervention. In the context of software testing, automation involves using specialized tools to execute test cases and compare the actual outcomes with the expected results automatically.
