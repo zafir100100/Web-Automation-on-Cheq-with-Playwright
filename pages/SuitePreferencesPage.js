@@ -1,7 +1,7 @@
 class SuitePreferencesPage {
     constructor(page) {
         this.page = page;
-        this.save_button = page.locator("//button[@type='submit']");
+        this.save_button = page.getByRole('button', { name: /save/i });
     }
 
     async submitSuitePreferences() {

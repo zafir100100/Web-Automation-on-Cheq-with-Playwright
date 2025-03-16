@@ -8,7 +8,7 @@ class LoginPage {
     this.password_textbox = page.locator('#mui-3');
     this.login_button = page.getByRole('button', { name: /log in/i });
     this.invalid_login_label = page.getByText(/invalid/i);
-    this.my_events_label = page.getByText(/my events/i);
+    this.my_events_label = page.getByText(/my event/i);
   }
 
   async gotoLoginPage() {
