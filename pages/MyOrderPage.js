@@ -3,7 +3,7 @@ class MyOrderPage {
     constructor(page) {
         this.page = page;
         this.pre_order_button = page.locator("//button[contains(text(),'Pre-Order')]");
-        this.credit_card_button = page.locator("//*[text()='Credit Card']");
+        this.credit_card_button = page.locator("//button[@aria-label='Credit Card']");
         this.credit_card_number_label = page.locator("//*[contains(text(),'Card number')]");
         this.credit_card_exp_date_label = page.locator("//input[@name='creditCardExpirationDate']");
         this.credit_card_cvv_label = page.locator("//input[@name='creditCardCvv']");
@@ -13,22 +13,23 @@ class MyOrderPage {
     }
 
     async submitCreditCardInfo(number, exp, cvv, name) {
-        await this.credit_card_button.click();
-        await this.credit_card_number_label.click();
-        await this.page.keyboard.type(number);
-        await this.credit_card_exp_date_label.click();
-        await this.page.keyboard.type(exp);
-        await this.credit_card_cvv_label.click();
-        await this.page.keyboard.type(cvv);
-        await this.credit_card_name_label.click();
-        await this.page.keyboard.type(name);
-        await this.credit_card_verify_subtotal_button.click();
+        await this.page.getByRole('button', { name: 'Credit Card' }).waitFor({ state: 'visible', timeout: 40000 });
+        await this.page.getByRole('button', { name: 'Credit Card' }).click();
+        await this.page.locator('iframe[title="Iframe for secured card number"]').contentFrame().getByRole('textbox', { name: 'Card number' }).fill(number);
+        await this.page.locator('iframe[title="Iframe for secured card expiry date"]').contentFrame().getByRole('textbox', { name: 'Expiry date' }).fill(exp);
+        await this.page.locator('iframe[title="Iframe for secured card security code"]').contentFrame().getByRole('textbox', { name: 'Security code' }).fill(cvv);
+        await this.page.getByRole('textbox', { name: 'Name on card' }).fill(name);
+        await this.page.getByRole('button', { name: 'Verify subtotal: $' }).click();
+        await this.page.getByRole('heading').first().click();
     }
 
-    async submitOrder() {
+    async submitPreOrder() {
         await this.pre_order_button.click();
-        await this.submitCreditCardInfo(process.env.CREDIT_CARD_NUMBER, process.env.CREDIT_CARD_EXP_DATE, process.env.CREDIT_CARD_CVV, process.env.CREDIT_CARD_NAME);
-        await this.order_status_text.waitFor({timeout: 10000});
+    }
+
+    async validateOrderSubmission() {
+        await this.order_status_text.waitFor({ state: 'visible' });
+        // await expect(this.order_status_text).toHaveText(/order/i);
     }
 }
 
