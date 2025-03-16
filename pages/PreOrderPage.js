@@ -26,7 +26,6 @@ class PreOrderPage {
             await this.page.keyboard.press('Enter');
             await this.add_to_order_button.click();
             await this.add_to_order_button.waitFor({ state: 'hidden', timeout: 40000 });
-            break;
         }
     }
 

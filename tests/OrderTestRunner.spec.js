@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { test } = require('@playwright/test');
-const allure = require('allure-playwright');
+const allure = require('allure-js-commons');
 
 const LoginPage = require('../pages/LoginPage');
 const MyEventPage = require('../pages/MyEventPage');
