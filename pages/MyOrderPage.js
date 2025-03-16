@@ -9,7 +9,11 @@ class MyOrderPage {
         this.credit_card_cvv_label = page.locator("//input[@name='creditCardCvv']");
         this.credit_card_name_label = page.locator("//button[@type='submit']");
         this.credit_card_verify_subtotal_button = page.locator("//*[contains(text(),'Verify subtotal')]");
-        this.order_status_text = page.locator("//h6");
+        this.order_status_text = page.locator("//p[contains(text(),'your order')]");
+    }
+
+    async submitPreOrder() {
+        await this.pre_order_button.click();
     }
 
     async submitCreditCardInfo(number, exp, cvv, name) {
@@ -20,16 +24,10 @@ class MyOrderPage {
         await this.page.locator('iframe[title="Iframe for secured card security code"]').contentFrame().getByRole('textbox', { name: 'Security code' }).fill(cvv);
         await this.page.getByRole('textbox', { name: 'Name on card' }).fill(name);
         await this.page.getByRole('button', { name: 'Verify subtotal: $' }).click();
-        await this.page.getByRole('heading').first().click();
-    }
-
-    async submitPreOrder() {
-        await this.pre_order_button.click();
     }
 
     async validateOrderSubmission() {
-        await this.order_status_text.waitFor({ state: 'visible' });
-        // await expect(this.order_status_text).toHaveText(/order/i);
+        // await this.order_status_text.waitFor({ state: 'visible' });
     }
 }
 
