@@ -42,24 +42,24 @@ test.describe('Order', () => {
         await myOrderPage.validateOrderSubmission();
     });
 
-    // test('@order Pre-Order product add to Cart', async ({ page }) => {
-    //     const loginPage = new LoginPage(page);
-    //     await loginPage.gotoLoginPage();
-    //     await loginPage.doLogin(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
-    //     await loginPage.validateSuccessfulLogin();
-    //     const myEventPage = new MyEventPage(page);
-    //     await myEventPage.submitEvent();
-    //     await myEventPage.validateSuccessfulEventSubmission();
-    //     const mySuitesPage = new MySuitePage(page);
-    //     const suiteState = await mySuitesPage.submitSuite();
-    //     if (suiteState === 1) {
-    //         const suitePreferencesPage = new SuitePreferencesPage(page);
-    //         await suitePreferencesPage.submitSuitePreferences();
-    //         await suitePreferencesPage.validateSuitePreferencesSubmission();
-    //     }
-    //     const preOrderPage = new PreOrderPage(page);
-    //     await preOrderPage.addItems();
-    //     await preOrderPage.submitPreOrder();
-    //     await preOrderPage.validatePreOrderSubmission();
-    // });
+    test('@order Pre-Order product add to Cart', async ({ page }) => {
+        const loginPage = new LoginPage(page);
+        await loginPage.gotoLoginPage();
+        await loginPage.doLogin(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
+        await loginPage.validateSuccessfulLogin();
+        const myEventPage = new MyEventPage(page);
+        await myEventPage.submitEvent();
+        await myEventPage.validateSuccessfulEventSubmission();
+        const mySuitesPage = new MySuitePage(page);
+        const suiteState = await mySuitesPage.submitSuite();
+        if (suiteState === 1) {
+            const suitePreferencesPage = new SuitePreferencesPage(page);
+            await suitePreferencesPage.submitSuitePreferences();
+            await suitePreferencesPage.validateSuitePreferencesSubmission();
+        }
+        const preOrderPage = new PreOrderPage(page);
+        await preOrderPage.addItems();
+        await preOrderPage.submitPreOrder();
+        await preOrderPage.validatePreOrderSubmission();
+    });
 });
