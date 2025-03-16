@@ -1,4 +1,4 @@
-# Web-Automation-with-Playwright
+# Web-Automation-on-Cheq-with-Playwright
 
 CheqPlease Suites Test Automation ensures smooth booking, ordering, and payment flows. It validates suite selection, cart management, and secure transactions.
 
