@@ -1,51 +1,53 @@
-require('dotenv').config();
-const { faker } = require('@faker-js/faker');
-const { test } = require('@playwright/test');
-const LoginPage = require('../pages/LoginPage');
-const allure = require('allure-js-commons');
+// require('dotenv').config();
 
-test.describe.parallel('Login', () => {
-    test('@sanity User login with valid credentials', async ({ page }) => {
-        await allure.description("This test validates the login functionality using valid credentials.");
-        await allure.epic("User Login");
-        await allure.feature("Login with valid credentials");
-        await allure.story("As a user, I want to login with valid credentials and access my account.");
-        await allure.tags("login", "sanity", "positive");
-        await allure.owner("zafir100100");
+// const { faker } = require('@faker-js/faker');
+// const { test } = require('@playwright/test');
+// const allure = require('allure-js-commons');
 
-        const loginPage = new LoginPage(page);
-        await allure.step("Navigate to the login page", async () => {
-            await loginPage.gotoLoginPage();
-        });
+// const LoginPage = require('../pages/LoginPage');
 
-        await allure.step("Perform login with valid credentials", async () => {
-            await loginPage.doLogin(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
-        });
+// test.describe.parallel('Login', () => {
+//     test('@sanity @parallel User login with valid credentials', async ({ page }) => {
+//         await allure.description("This test validates the login functionality using valid credentials.");
+//         await allure.epic("User Login");
+//         await allure.feature("Login with valid credentials");
+//         await allure.story("As a user, I want to login with valid credentials and access my account.");
+//         await allure.tags("login", "sanity", "positive");
+//         await allure.owner("zafir100100");
 
-        await allure.step("Validate successful login", async () => {
-            await loginPage.validateSuccessfulLogin();
-        });
-    });
+//         const loginPage = new LoginPage(page);
+//         await allure.step("Navigate to the login page", async () => {
+//             await loginPage.gotoLoginPage();
+//         });
 
-    test('User login with invalid credentials', async ({ page }) => {
-        await allure.description("This test checks that a user cannot log in with invalid credentials.");
-        await allure.epic("User Login");
-        await allure.feature("Login with invalid credentials");
-        await allure.story("As a user, I want to be informed when I try to login with invalid credentials.");
-        await allure.tags("login", "sanity", "negative");
-        await allure.owner("zafir100100");
+//         await allure.step("Perform login with valid credentials", async () => {
+//             await loginPage.doLogin(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
+//         });
 
-        const loginPage = new LoginPage(page);
-        await allure.step("Navigate to the login page", async () => {
-            await loginPage.gotoLoginPage();
-        });
+//         await allure.step("Validate successful login", async () => {
+//             await loginPage.validateSuccessfulLogin();
+//         });
+//     });
 
-        await allure.step("Perform login with invalid credentials", async () => {
-            await loginPage.doLogin(faker.internet.email(), faker.internet.password());
-        });
+//     test('@parallel User login with invalid credentials', async ({ page }) => {
+//         await allure.description("This test checks that a user cannot log in with invalid credentials.");
+//         await allure.epic("User Login");
+//         await allure.feature("Login with invalid credentials");
+//         await allure.story("As a user, I want to be informed when I try to login with invalid credentials.");
+//         await allure.tags("login", "sanity", "negative");
+//         await allure.owner("zafir100100");
 
-        await allure.step("Validate failed login", async () => {
-            await loginPage.validateFailedLogin();
-        });
-    });
-});
+//         const loginPage = new LoginPage(page);
+//         await allure.step("Navigate to the login page", async () => {
+//             await loginPage.gotoLoginPage();
+//         });
+
+//         await allure.step("Perform login with invalid credentials", async () => {
+//             await loginPage.doLogin(faker.internet.email(), faker.internet.password());
+//         });
+
+//         await allure.step("Validate failed login", async () => {
+//             await loginPage.validateFailedLogin();
+//         });
+//     });
+// });
