@@ -1,5 +1,7 @@
 # Web-Automation-with-Playwright
 
+CheqPlease Suites Test Automation ensures smooth booking, ordering, and payment flows. It validates suite selection, cart management, and secure transactions.
+
 ## Video Output
 
 https://github.com/user-attachments/assets/8673500a-14a1-4729-85e4-8b4bab5feee3
