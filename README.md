@@ -8,21 +8,47 @@ https://github.com/user-attachments/assets/8673500a-14a1-4729-85e4-8b4bab5feee3
 
 Automation is the practice of using software tools and scripts to perform tasks that would typically require human intervention. In the context of software testing, automation involves using specialized tools to execute test cases and compare the actual outcomes with the expected results automatically.
 
-## Why we use Playwright?
+# Test Scenario for CheqPlease Suites  
 
-Playwright offers several compelling reasons for web automation:
+1. **Visit the Website:**  
+   - Open [CheqPlease Suites UAT](https://suites.uat.cheqplease.com/) in a web browser.  
 
-Multi-Browser Support: Playwright supports multiple web browsers, including Chrome, Firefox, and WebKit. This enables you to run your tests on different browsers without modifying your codebase.
+2. **Log In:**  
+   - Use the following credentials:  
+     - **Email:** automate.cheq@yopmail.com  
+     - **Password:** Automation@2025  
 
-Powerful Cross-Browser API: Playwright provides a powerful and consistent API for automating web interactions across different browsers. You can easily simulate user actions, interact with DOM elements, and perform browser-specific operations.
+3. **Select Event Date:**  
+   - Choose **17 March** from the date selection.  
 
-Headless and Headful Modes: Playwright allows you to run tests in headless mode for faster execution or in headful mode for debugging and troubleshooting. You have the flexibility to choose the appropriate mode based on your needs.
+4. **Choose an Event:**  
+   - Pick **"Automation Horizon"** from the event list and proceed.  
 
-Robust Wait and Retry Mechanism: Playwright's built-in wait and retry mechanism ensures that your tests wait for elements to appear or conditions to be met before proceeding. This reduces flakiness and enhances test reliability.
+5. **Select a Suite:**  
+   - Choose any suite from the available options and continue.  
 
-Accessibility Testing: Playwright includes extensive support for accessibility testing, allowing you to verify that your web applications are accessible to users with disabilities.
+6. **Save Suite Preferences:**  
+   - Set the selected suite as the **default preference**.  
 
-Overall, Playwright is a powerful and efficient tool for web automation that can help you to test your application more effectively and catch issues early in the development process.
+7. **Add Items to Cart:**  
+   - Select **one item from each category** and click **View Cart**.  
+
+8. **Pre-Order and Payment Selection:**  
+   - Save the **pre-order** and select **Credit Card** as the payment method.  
+
+9. **Enter Test Card Details:**  
+   - **Card Number:** 3700 000000 00002  
+   - **Expiry Date:** 03/30  
+   - **CVC/CVV:** 7373  
+   - **Name on Card:** CHEQ by Cantaloupe  
+
+10. **Verify Subtotal:**  
+    - Click on **Verify Subtotal** to confirm the amount.  
+
+11. **Validate Test Results:**  
+    - Check for expected behaviors such as:  
+      - Correct subtotal calculation.  
+      - Successful payment processing or relevant error messages.
 
 ## Technology used:
 - Playwright
