@@ -1,0 +1,27 @@
+{
+  "name": "web-automation-with-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "generateAllureReport": "npx allure generate allure-results --clean -o allure-report && npx allure open allure-report",
+    "testHeaded": "npx playwright test --headed",
+    "testSanityHeaded": "npx playwright test --grep @sanity --headed",
+    "testNegativeSanityHeaded": "npx playwright test --grep @negative --headed",
+    "testLoginSuiteHeaded": "npx playwright test --grep @login --headed"
+  },
+  "keywords": [],
+  "author": "zafir100100",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^9.6.0",
+    "@playwright/test": "^1.51.0",
+    "allure-commandline": "^2.33.0",
+    "allure-playwright": "^3.2.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "allure-js-commons": "^3.2.0"
+  }
+}
