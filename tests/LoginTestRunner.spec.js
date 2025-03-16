@@ -1,11 +1,13 @@
 require('dotenv').config();
+
 const { faker } = require('@faker-js/faker');
 const { test } = require('@playwright/test');
-const LoginPage = require('../pages/LoginPage');
 const allure = require('allure-js-commons');
 
+const LoginPage = require('../pages/LoginPage');
+
 test.describe.parallel('Login', () => {
-    test('@sanity User login with valid credentials', async ({ page }) => {
+    test('@sanity @parallel User login with valid credentials', async ({ page }) => {
         await allure.description("This test validates the login functionality using valid credentials.");
         await allure.epic("User Login");
         await allure.feature("Login with valid credentials");
@@ -27,7 +29,7 @@ test.describe.parallel('Login', () => {
         });
     });
 
-    test('User login with invalid credentials', async ({ page }) => {
+    test('@parallel User login with invalid credentials', async ({ page }) => {
         await allure.description("This test checks that a user cannot log in with invalid credentials.");
         await allure.epic("User Login");
         await allure.feature("Login with invalid credentials");
