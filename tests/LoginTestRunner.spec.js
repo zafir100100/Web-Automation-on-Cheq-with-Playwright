@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const { faker } = require('@faker-js/faker');
-const { test } = require('@playwright/test'); 
+const { test } = require('@playwright/test');
 const allure = require('allure-js-commons');
 
 const LoginPage = require('../pages/LoginPage');
