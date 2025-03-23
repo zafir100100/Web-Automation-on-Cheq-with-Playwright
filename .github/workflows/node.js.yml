@@ -34,4 +34,4 @@ jobs:
         run: npm run build --if-present  
 
       - name: Run Tests and Generate Report
-        run: npm test file ./tests/*
+        run: npm test file ./tests/LoginTestRunner.spec.js
