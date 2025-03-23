@@ -28,10 +28,13 @@ jobs:
         run: npm ci  
 
       - name: Install Playwright Firefox  
-        run: npx playwright install firefox
+        run: npx playwright install firefox  
 
       - name: Build Project  
         run: npm run build --if-present  
 
-      - name: Run Tests and Generate Report
-        run: npm test file ./tests/LoginTestRunner.spec.js
+      - name: Run Tests  
+        run: npm test file ./tests/LoginTestRunner.spec.js  
+
+      - name: Generate Allure Report  
+        run: npx allure generate allure-results --clean -o allure-report  
